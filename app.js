@@ -40,10 +40,14 @@ app.get('/api', (req, res) => {
 
 const getValidUtcTime = () => {
   const currentUtcTime = new Date();
+  const year = currentUtcTime.getFullYear();
+  const month = String(currentUtcTime.getMonth() + 1).padStart(2, '0');
+  const day = String(currentUtcTime.getDate()).padStart(2, '0');
+  const hours = String(currentUtcTime.getHours()).padStart(2, '0');
+  const minutes = String(currentUtcTime.getMinutes()).padStart(2, '0');
+  const seconds = String(currentUtcTime.getSeconds()).padStart(2, '0');
 
-  currentUtcTime.setMinutes(currentUtcTime.getMinutes());
-
-  const formattedUtcTime = currentUtcTime.toISOString();
+  const formattedUtcTime = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}Z`;
 
   return formattedUtcTime;
 };
