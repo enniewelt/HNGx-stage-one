@@ -22,8 +22,9 @@ app.get('/api', (req, res) => {
 
   const presentUtcTime = getValidUtcTime();
 
-  const githuRepoUrl = 'https://github.com/enniwelt/repo';
-  const githubFileUrl = 'https://github/enniwelt/repo/blob/master/README.md';
+  const githuRepoUrl = 'https://github.com/enniewelt/HNGx-stage-one';
+  const githubFileUrl =
+    'https://github.com/enniewelt/HNGx-stage-one/blob/master/app.js';
 
   const resData = {
     slack_name: slackName,
@@ -40,7 +41,7 @@ app.get('/api', (req, res) => {
 const getValidUtcTime = () => {
   const currentUtcTime = new Date();
 
-  currentUtcTime.setMinutes(currentUtcTime.getMinutes() - 2);
+  currentUtcTime.setMinutes(currentUtcTime.getMinutes());
 
   const formattedUtcTime = currentUtcTime.toISOString();
 
